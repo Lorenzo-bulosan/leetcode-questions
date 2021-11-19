@@ -24,33 +24,31 @@ namespace DataStructures.LinkedList
 
         /// <summary>
         /// Method to get value of the head node and remove it from the list. 
-        /// Return resulting list a List<int> to visualise it as the linked list itself is in memory.
+        /// Return head node value.
         /// </summary>
         /// <returns></returns>
-        List<int> Peak(out int head);
+        int Peek();
 
         /// <summary>
         /// Method to create a node and insert at the FRONT of linked list.
-        /// Return resulting list a List<int> to visualise it as the linked list itself is in memory
         /// </summary>
         /// <param name="nodeToAdd"></param>
         /// <returns></returns>
-        List<int> Push(int valueOfNewNode);
+        void Push(int valueOfNewNode);
 
         /// <summary>
         /// Method to create a node and insert at the END of linked list.
-        /// Return resulting list a List<int> to visualise it as the linked list itself is in memory
         /// </summary>
         /// <param name="nodeToAdd"></param>
         /// <returns></returns>
-        List<int> Append(int valueOfNewNode);
+        void Append(int valueOfNewNode);
 
         /// <summary>
-        /// Removes node from list.
-        /// Return resulting list as a List<int> to visualise it as the linked list itself is in memory.
+        /// Removes node from list by comparing values
+        /// Assumes values are unique in the whole list
         /// </summary>
         /// <param name="nodeToAdd"></param>
         /// <returns></returns>
-        List<int> RemoveNode(LinkedListNode nodeToRemove);
+        void RemoveNode(LinkedListNode nodeToRemove);
     }
 }

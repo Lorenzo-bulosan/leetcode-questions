@@ -27,7 +27,7 @@ class Q206SolutionShould
         node5.Next = node6;
 
         // create link list and set up its head node
-        var _linkedList = new SinglyLinkedList();
+        _linkedList = new SinglyLinkedList();
         _linkedList.HeadNode = node1; // this and smoke test should run if interface implemented
 
         // instantiate subject under test
@@ -35,10 +35,11 @@ class Q206SolutionShould
     }
 
     [Test]
+    [Ignore ("Not implemented")]
     public void Return_Correct_List()
     {
         var output = _sut.Solution();
-        List<int> expectedOuput = new List<int>() { 6,5,4,3,2,1 };
+        List<int> expectedOuput = new List<int>() { 6, 5, 4, 3, 2, 1 };
 
         Assert.That(output, Is.EqualTo(expectedOuput));
     }
