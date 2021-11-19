@@ -1,5 +1,6 @@
 using DataStructures.LinkedList;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace UnitTests.LinkedListTest
 {
@@ -14,12 +15,12 @@ namespace UnitTests.LinkedListTest
         public void Setup()
         {
             // create test nodes in nemory
-            var node1 = new LinkedListNode() { Value = 1 };
-            var node2 = new LinkedListNode() { Value = 2 };
-            var node3 = new LinkedListNode() { Value = 3 };
-            var node4 = new LinkedListNode() { Value = 4 };
-            var node5 = new LinkedListNode() { Value = 5 };
-            var node6 = new LinkedListNode() { Value = 6 };
+            LinkedListNode node1 = new() { Value = 1 };
+            LinkedListNode node2 = new() { Value = 2 };
+            LinkedListNode node3 = new() { Value = 3 };
+            LinkedListNode node4 = new() { Value = 4 };
+            LinkedListNode node5 = new() { Value = 5 };
+            LinkedListNode node6 = new() { Value = 6 };
 
             // map nodes creating the actual linked list
             node1.Next = node2;
@@ -50,9 +51,9 @@ namespace UnitTests.LinkedListTest
         [Test]
         public void ScratchPad()
         {
-            //var checkMe = _sut;
-            //var headNodeValue = _sut.HeadNode.Value;
-            //var secondNodeValue = _sut.HeadNode.Next.Value;
+            var checkMe = _sut;
+            var headNodeValue = _sut.HeadNode.Value;
+            var secondNodeValue = _sut.HeadNode.Next.Value;
         }
 
         #region Unit tests
@@ -60,30 +61,59 @@ namespace UnitTests.LinkedListTest
         [Test]
         public void WhenCalling_TraverseAll_ReturnCorrectIntList()
         {
-            //var representationList = _sut.TraverseAll();
-            //List<int> expectedValue = new List<int>() {1,2,3,4,5,6};
+            var representationList = _sut.TraverseAll();
+            List<int> expectedValue = new() { 1, 2, 3, 4, 5, 6 };
 
-            //Assert.That(representationList, Is.EqualTo(expectedValue));
+            Assert.That(representationList, Is.EqualTo(expectedValue));
         }
         
         // Peak()
         [Test]
-        public void WhenCalling_Peak_ReturnCorrectIntList()
+        public void WhenCalling_Peek_ReturnCorrectIntList()
         {
+            List<int> oldList = _sut.TraverseAll();
+            _sut.Peek();
+            List<int> representativeList = _sut.TraverseAll();
+            int expectedLenght = 5;            
+            int oldLenght = 6;            
 
-        }
-        
-        [Test]
-        public void WhenCalling_Peak_ReturnCorrectOutParameter()
-        {
-
+            Assert.AreEqual(representativeList.Count, expectedLenght);
+            Assert.AreEqual(oldList.Count, oldLenght);
         }
         
         // Push()
         [Test]
         public void WhenCalling_Push_ReturnCorrectHeadNode()
         {
+            _sut.Push(99); // creates new head
+            int newHeadValue = _sut.HeadNode.Value; 
 
+            int expectedValue = 99;
+
+            Assert.AreEqual(expectedValue, newHeadValue);
+        }        
+        
+        // Append()
+        [Test]
+        public void WhenCalling_Append_ReturnCorrectResultingList()
+        {
+            _sut.Append(100);
+            var representationList2 = _sut.TraverseAll();
+            List<int> expectedValue = new() { 1, 2, 3, 4, 5, 6, 100};
+
+            Assert.AreEqual(expectedValue, representationList2);
+        }        
+        
+        // Delete()
+        [Test]
+        public void WhenCalling_Delete_ReturnCorrectList()
+        {
+            LinkedListNode nodeToRemove = new LinkedListNode() { Value = 3 };
+            _sut.RemoveNode(nodeToRemove);
+            var representationList = _sut.TraverseAll();
+            List<int> correctList = new() { 1, 2, 4, 5, 6 };
+
+            Assert.AreEqual(correctList, representationList);
         }
         #endregion
     }
