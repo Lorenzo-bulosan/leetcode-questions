@@ -18,10 +18,16 @@ namespace DataStructures.LinkedList.Implementations
             List<int> listOfNodeValues = new();
             LinkedListNode newNode = new() { Value = valueOfNewNode};
             LinkedListNode currentNode = HeadNode;
-            bool isLast = false;
+
+            // edge case: empty list
+            if(HeadNode == null)
+            {
+                HeadNode = newNode;
+                return;
+            }
 
             // traversing linked list
-            while (!isLast)
+            while (currentNode != null)
             {
                 // to output
                 listOfNodeValues.Add(currentNode.Value);
@@ -35,13 +41,16 @@ namespace DataStructures.LinkedList.Implementations
                 {
                     // point current to new
                     currentNode.Next = newNode;
-                    isLast = true;
+                    break;
                 }
             }
         }
 
         public int Peek()
         {
+            //edge case: empty list
+            if (HeadNode == null) return -999999999;
+
             // tmp value for swapping
             LinkedListNode oldHead = HeadNode;
             HeadNode = HeadNode.Next;
@@ -56,32 +65,38 @@ namespace DataStructures.LinkedList.Implementations
             // create node
             LinkedListNode newNode = new();
             newNode.Value = valueOfNewNode;
-            newNode.Next = HeadNode;
 
-            // change head
+            // edge case: empty list
+            if (HeadNode == null)
+            {
+                HeadNode = newNode;
+                return;
+            }
+
+            // swap head
+            newNode.Next = HeadNode;
             HeadNode = newNode;
         }
 
         public void RemoveNode(LinkedListNode nodeToRemove)
         {
+            // edge case: empty list
+            if (HeadNode == null) return;
+
             LinkedListNode currentNode = HeadNode;
             LinkedListNode lastNode = null;
-            LinkedListNode nextNode = currentNode.Next; 
+            LinkedListNode nextNode = currentNode.Next;            
+
+            // edge case: single node in entire list or end of list
+            if (currentNode.Next == null)
+            {
+                HeadNode = null;
+                return;
+            }
 
             // traverse
             while (true)
-            {
-                // edge case: single node in entire list or end of list
-                if (currentNode.Next == null) return;
-
-                // edge case: removing head node
-                if (nodeToRemove.Equals(HeadNode))
-                {
-                    //unlinks head and next node becomes head
-                    HeadNode.Next = null;
-                    nextNode = HeadNode;
-                }
-
+            {                         
                 // when you find node to remove
                 if (nodeToRemove.Equals(currentNode))
                 {
@@ -103,9 +118,8 @@ namespace DataStructures.LinkedList.Implementations
             List<int> listOfNodeValues = new();
             LinkedListNode currentNode = HeadNode;
 
-            bool isLast = false;
-
-            while (!isLast)
+            // traverse and covers empty linklist edge cases
+            while (currentNode != null)
             {
                 listOfNodeValues.Add(currentNode.Value);
 
@@ -115,8 +129,8 @@ namespace DataStructures.LinkedList.Implementations
                     currentNode = currentNode.Next;
                 }
                 else
-                {
-                    isLast = true;
+                {                  
+                    break;
                 }
             }
             return listOfNodeValues;
