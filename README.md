@@ -12,8 +12,8 @@ You can see a working implementation and it's separated into folders so you can 
 
 ## Current topics covered
 
-- [ ] Singly Linked List
-  - [x] Reverse Linked List (Q206)
+- [x] Singly Linked List Class
+  - [ ] Q206 Reverse Linked List
   - [ ] Next question TBC
 - [ ] Next topic 'Trees'
 - [ ] Next topic TBC
