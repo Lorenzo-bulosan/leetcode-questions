@@ -14,7 +14,7 @@ You can see a working implementation and it's separated into folders so you can 
 
 - [x] Singly Linked List Class
   - [x] Q206 Reverse Linked List (easy)
-  - [ ] Q2 Adding Two Numbers (medium)
+  - [x] Q2 Adding Two Numbers (medium)
   - [ ] Next question TBC
 - [ ] Next topic 'Trees'
 - [ ] Next topic TBC
