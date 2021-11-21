@@ -31,16 +31,59 @@ class Q206SolutionShould
         _linkedList.HeadNode = node1; // this and smoke test should run if interface implemented
 
         // instantiate subject under test
-        var _sut = new ReverseLinkedList();
+        _sut = new ReverseLinkedList();
     }
 
     [Test]
-    [Ignore ("Not implemented")]
-    public void Return_Correct_List()
-    {
-        var output = _sut.Solution();
-        List<int> expectedOuput = new List<int>() { 6, 5, 4, 3, 2, 1 };
+    public void Return_Correct_ReversedList()
+    {        
+        List<int> reversedList = new();
+        List<int> expectedOuputVal = new() { 6, 5, 4, 3, 2, 1 };
 
-        Assert.That(output, Is.EqualTo(expectedOuput));
+        var outputNode = _sut.Solution(_linkedList.HeadNode);
+
+        while (outputNode != null)
+        {
+            reversedList.Add(outputNode.Value);
+            outputNode = outputNode.Next;
+        }
+
+        Assert.That(expectedOuputVal, Is.EqualTo(reversedList));
+    }
+    [Test]
+    public void Return_Empty_WhenListToReverse_IsEmpty()
+    {
+        List<int> reversedList = new();
+        ReverseLinkedList localSut = new();
+
+        var outputNode = localSut.Solution(null);
+
+        while (outputNode != null)
+        {
+            reversedList.Add(outputNode.Value);
+            outputNode = outputNode.Next;
+        }
+        if (reversedList.Count == 0) reversedList = null; 
+
+        Assert.That(null, Is.EqualTo(reversedList));
+    }
+    [Test]
+    public void Return_CorrectList_WhenOnlyOneNode()
+    {
+        ReverseLinkedList localSut = new();
+        SinglyLinkedList oneValueList = new();
+        oneValueList.HeadNode = new LinkedListNode() { Value = -9999 };
+        List<int> reversedList = new();
+        List<int> expectedOuputVal = new() { -9999 };
+
+        var outputNode = localSut.Solution(oneValueList.HeadNode);
+
+        while (outputNode != null)
+        {
+            reversedList.Add(outputNode.Value);
+            outputNode = outputNode.Next;
+        }
+
+        Assert.That(expectedOuputVal, Is.EqualTo(reversedList));
     }
 }
