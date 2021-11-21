@@ -55,7 +55,18 @@ namespace UnitTests.LinkedListTests.Q2AddTwoNumbers
             LinkedListNode output = _sut.Solution(l1.HeadNode, l2.HeadNode);
 
             // compare
-            Assert.AreEqual(output.Value, expectedResult.HeadNode.Value);
+            while(expectedResult.HeadNode != null)
+            {
+                // test each
+                if (output.Value != expectedResult.HeadNode.Value)
+                {
+                    Assert.Fail();
+                }
+                // keep moving
+                output = output.Next;
+                expectedResult.HeadNode = expectedResult.HeadNode.Next;
+            }
+            Assert.Pass();
         }
     }
 }
