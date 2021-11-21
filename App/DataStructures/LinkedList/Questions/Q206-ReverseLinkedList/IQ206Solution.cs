@@ -7,6 +7,6 @@ namespace DataStructures.LinkedList.Questions.Q206_ReverseLinkedList
     /// </summary>
     public interface IQ206Solution
     {
-        List<int> Solution();
+        LinkedListNode Solution(LinkedListNode head);
     }
 }
