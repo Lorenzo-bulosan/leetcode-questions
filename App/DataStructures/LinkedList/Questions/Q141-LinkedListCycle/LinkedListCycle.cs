@@ -10,7 +10,7 @@ namespace DataStructures.LinkedList.Questions.Q141_LinkedListCycle
     /// <summary>
     /// Parent one
     /// </summary>
-    class LinkedListCycle : FloydCycleAlgorithm, IQ141Solution
+    public class LinkedListCycle : FloydCycleAlgorithm, IQ141Solution
     {
         
     }

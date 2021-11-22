@@ -3,7 +3,7 @@
 namespace DataStructures.LinkedList
 {
     /// <summary>
-    /// Model of a node for a singly linked list
+    /// Model of a node for a singly linked list assuming each node value is unique
     /// </summary>
     public class LinkedListNode
     {
