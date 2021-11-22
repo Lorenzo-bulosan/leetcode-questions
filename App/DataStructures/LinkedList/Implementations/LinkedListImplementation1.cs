@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 /// </summary>
 namespace DataStructures.LinkedList.Implementations
 {
-    public class Implementation1 : ILinkedList
+    public class LinkedListImplementation1 : ILinkedList
     {
         public LinkedListNode HeadNode { get; set; }
 

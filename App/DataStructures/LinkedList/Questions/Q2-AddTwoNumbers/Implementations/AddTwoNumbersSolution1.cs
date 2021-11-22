@@ -18,7 +18,7 @@ namespace DataStructures.LinkedList.Questions.Q2_AddTwoNumbers.Implementations
     /// Carefull as we want to give the head node and we constructing the list then just make a holder for the first sum result as that will be the head
     /// and the solution to our problem
     /// </summary>
-    public class Implementation1 : IQ2Solution
+    public class AddTwoNumbersSolution1 : IQ2Solution
     {
         public LinkedListNode Solution(LinkedListNode l1, LinkedListNode l2)
         {

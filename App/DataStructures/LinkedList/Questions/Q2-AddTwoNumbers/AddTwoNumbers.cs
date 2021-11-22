@@ -13,7 +13,7 @@ namespace DataStructures.LinkedList.Questions.Q2_AddTwoNumbers
     /// The unit test will call this class so you don't have to make unit test for your own 
     /// just swap your own classes to inherit from and run the tests
     /// </summary>
-    public class AddTwoNumbers : Implementation1, IQ2Solution
+    public class AddTwoNumbers : AddTwoNumbersSolution1, IQ2Solution
     {
 
     }

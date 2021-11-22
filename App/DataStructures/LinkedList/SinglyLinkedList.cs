@@ -9,7 +9,7 @@ namespace DataStructures.LinkedList
     /// just swap your own classes to inherit from and run the tests
     /// </summary>
     /// <typeparam name="LinkedListNode"></typeparam>
-    public class SinglyLinkedList : Implementation1
+    public class SinglyLinkedList : LinkedListImplementation1
     {
     }
 }
