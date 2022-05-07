@@ -8,7 +8,7 @@ namespace DataStructures.LinkedList.Questions.Q206_ReverseLinkedList
     /// The unit test will call this class so you don't have to make unit test for your own 
     /// just swap your own classes to inherit from and run the tests
     /// </summary>
-    public class ReverseLinkedList : SolutionImplementation1 , IQ206Solution
+    public class ReverseLinkedList : ReverseLinkedListSolution1 , IQ206Solution
     {
 
     }

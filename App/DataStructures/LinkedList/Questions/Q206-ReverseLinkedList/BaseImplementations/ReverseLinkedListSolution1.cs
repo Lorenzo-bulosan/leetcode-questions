@@ -10,7 +10,7 @@ namespace DataStructures.LinkedList.Questions.Q206_ReverseLinkedList.Implementat
     /// My implementation of the solution to the Leetcode question 206
     /// https://leetcode.com/problems/reverse-linked-list/
     /// </summary>
-    public class SolutionImplementation1 : IQ206Solution
+    public class ReverseLinkedListSolution1 : IQ206Solution
     {
         public LinkedListNode Solution(LinkedListNode head)
         {
