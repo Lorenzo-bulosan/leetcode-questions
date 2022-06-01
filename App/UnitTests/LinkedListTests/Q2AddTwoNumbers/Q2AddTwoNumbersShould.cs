@@ -1,6 +1,7 @@
 ﻿using DataStructures.LinkedList;
 using DataStructures.LinkedList.Questions.Q2_AddTwoNumbers;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 
 namespace UnitTests.LinkedListTests.Q2AddTwoNumbers
@@ -60,8 +61,10 @@ namespace UnitTests.LinkedListTests.Q2AddTwoNumbers
                 // test each
                 if (output.Value != expectedResult.HeadNode.Value)
                 {
+                    Console.WriteLine($"You did this:{output.Value}, but we want this {expectedResult.HeadNode.Value}");
                     Assert.Fail();
                 }
+                Console.WriteLine($"You did this:{output.Value}, we correctly got this:{expectedResult.HeadNode.Value}");
                 // keep moving
                 output = output.Next;
                 expectedResult.HeadNode = expectedResult.HeadNode.Next;
