@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DataStructures.LinkedList.Questions.Q141_LinkedListCycle
 {
     /// <summary>
-    /// Structure for solution
+    /// Structure for solution to question Q141
     /// https://leetcode.com/problems/linked-list-cycle/
     /// </summary>
     public interface IQ141Solution
