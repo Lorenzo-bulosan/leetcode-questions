@@ -11,6 +11,6 @@
         /// <returns>
         /// -1 if not found and its index within array if found
         /// </returns>
-        double Solution(double target, double[] sortedList);
+        int Solution(int target, int[] sortedList);
     }
 }

@@ -11,10 +11,10 @@ namespace DataStructures.Searching.BinarySearch.Implementations
     /// </summary>
     public class BinarySearchSolution1
     {
-        private double Middle(double[] array) => Math.Ceiling(array.Length / 2f);
-        private double _midIndex;
+        private int Middle(int[] array) => (int)Math.Ceiling(array.Length / 2f);
+        private int _midIndex, _currentVal;
 
-        public double Solution(double target, double[] sortedArray)
+        public int Solution(int target, int[] sortedArray)
         {
             // IN: {2, [1,2,3]}
             while (true)
@@ -24,12 +24,13 @@ namespace DataStructures.Searching.BinarySearch.Implementations
 
                 // take the middle
                 _midIndex = Middle(sortedArray); // 1indx = 2 
+                _currentVal = sortedArray[_midIndex];
 
                 // compare to target
-                if (_midIndex == target) return _midIndex; // skip
+                if (_currentVal == target) return _midIndex; // skip
 
                 // remove itself and whole corresponding side 
-                if (_midIndex > target) // true
+                if (_currentVal < target) // true
                 {
                     sortedArray = PartitionArray(_midIndex++, sortedArray.Length, sortedArray); // [3]
                 }
@@ -40,7 +41,7 @@ namespace DataStructures.Searching.BinarySearch.Implementations
             }
         }        
 
-        private double[] PartitionArray(double startIndex, double endIndex, double[] array)
+        private int[] PartitionArray(int startIndex, int endIndex, int[] array)
         {
             try
             {
